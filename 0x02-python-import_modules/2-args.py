@@ -4,9 +4,9 @@ import sys
 
 def arguments():
     n = len(sys.argv)
-    if n == 0:
+    if n == 1:
         print("0 arguments.")
-    elif n == 1:
+    elif n == 2:
         print("1 argument:")
     else:
         print("{:d} arguments:".format(n - 1))
