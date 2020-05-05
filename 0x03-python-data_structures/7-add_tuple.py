@@ -2,6 +2,7 @@
 # function that adds 2 tuples
 # Returns a tuple with 2 integers
 
+
 def add_tuple(tuple_a=(), tuple_b=()):
     new_tuple = ()
     tuple_a += (0, 0)
