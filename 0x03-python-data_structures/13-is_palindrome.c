@@ -65,14 +65,10 @@ int is_palindrome(listint_t **head)
 		index++;
 	}
 	reverse(&node);
-	printf("\n");
-	print_listint(node);
-	printf("\n");
 	while (node)
 	{
-		printf("len(%d) %d == %d\n", len, node->n, (*head)->n);
 		if (node->n != (*head)->n)
-			return (0);
+		return (0);
 		node = node->next;
 		*head = (*head)->next;
 	}
