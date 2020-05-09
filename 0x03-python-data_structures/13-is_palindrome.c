@@ -1,43 +1,6 @@
 #include "lists.h"
 
 /**
- * list_len - returns the number of elements in a linked list_t list.
- * @h: list_t list.
- * Return: the number of elements in a linked list_t list.
- */
-int list_len(const listint_t *h)
-{
-	int index = 0;
-
-	while (h != NULL)
-	{
-		index++;
-		h = h->next;
-	}
-
-	return (index);
-}
-
-/**
- * reverse - reverse
- * @head: head
- * Return: void
- */
-void reverse(listint_t **head)
-{
-	listint_t *next = NULL, *current = NULL;
-
-	while (*head)
-	{
-		next = (*head)->next;
-		(*head)->next = current;
-		current = *head;
-		*head = next;
-	}
-	*head = current;
-}
-
-/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: head of the linked list
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
@@ -45,32 +8,37 @@ void reverse(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *node = NULL;
-	int len = 0, index = 0;
+	listint_t *current;
+	listint_t *head_2;
+	listint_t *prev_2 = NULL;
+	listint_t *current_again;
+	listint_t *head_2_again;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	node = *head;
-	len = list_len(*head);
-	if (len % 2 == 0)
+
+	current = *head;
+	while (current)
 	{
-		len = len / 2;
-		len -= 1;
+		head_2 = malloc(sizeof(listint_t));
+		head_2->n = current->n;
+		head_2->next = prev_2;
+		prev_2 = head_2;
+		current = current->next;
 	}
-	else
-		len = len / 2;
-	while (index <= len)
+
+	current_again = *head;
+	head_2_again = head_2;
+	while (current_again)
 	{
-		node = node->next;
-		index++;
+		if (current_again->n != head_2_again->n)
+		{
+			free(head_2);
+			return (0);
+		}
+		current_again = current_again->next;
+		head_2_again = head_2_again->next;
 	}
-	reverse(&node);
-	while (node)
-	{
-		if (node->n != (*head)->n)
-		return (0);
-		node = node->next;
-		*head = (*head)->next;
-	}
+	free(head_2);
 	return (1);
 }
