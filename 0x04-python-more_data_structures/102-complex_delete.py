@@ -3,8 +3,10 @@
 
 
 def complex_delete(a_dictionary, value):
-    ref_dic = {k: v for k, v in a_dictionary.items()}
-    for key, d_value in ref_dic.items():
+    list_keys = []
+    for key, d_value in a_dictionary.items():
         if d_value == value:
-            del a_dictionary[key]
+            list_keys.append(key)
+    for elem in list_keys:
+        del a_dictionary[elem]
     return a_dictionary
