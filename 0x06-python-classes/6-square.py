@@ -77,10 +77,14 @@ class Square:
 
     def check_position(self, value):
         """Check if value is a tuple of 2 positive integers"""
-        if type(value) == tuple:
-            for elem in value:
-                if not type(elem) == int:
-                    raise TypeError(
-                        "position must be a tuple of 2 positive integers")
-        else:
+        flag = 0
+        if type(value) is not tuple:
+            flag = 1
+        if len(value) != 2:
+            flag = 1
+        if type(value[0]) is not int or type(value[1]) is not int:
+            flag = 1
+        if value[0] < 0 or value[1] < 0:
+            flag = 1
+        if flag is 1:
             raise TypeError("position must be a tuple of 2 positive integers")
