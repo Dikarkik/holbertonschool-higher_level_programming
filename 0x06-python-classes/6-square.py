@@ -1,46 +1,34 @@
 #!/usr/bin/python3
-"""4. Access and update private attribute"""
+"""Square Module"""
 
 
 class Square:
     """class that defines a square"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Args:
-        self: object instance.
-        size: size of the square.
-        position: must be a tuple of 2 positive integers.
-        """
+        """initialize"""
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Returns: [int] -- size of the square"""
+        """retrieves the size of the square"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter of 'size' attribute
-
-            Arguments:
-                value {int} -- new size of the square
-
-            Raises:
-                TypeError: When value does not a int
-                ValueError: When value is less than 0
-        """
+        """Setter of '__size' attribute"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
 
         if value < 0:
             raise ValueError("size must be >= 0")
-        
+
         self.__size = value
 
     @property
     def position(self):
-        """Returns: [tuple] -- position of the square"""
+        """retrieves the position of the square"""
         return self.__position
 
     @position.setter
@@ -57,8 +45,7 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Returns the current square area
-        """
+        """Returns the current square area"""
         return self.__size * self.__size
 
     def my_print(self):
