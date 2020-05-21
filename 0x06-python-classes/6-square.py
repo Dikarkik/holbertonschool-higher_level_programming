@@ -3,10 +3,7 @@
 
 
 class Square:
-    """class Square that defines a square by:
-        - Private instance attribute: size
-        - Instantiation with optional size = 0
-    """
+    """class that defines a square"""
 
     def __init__(self, size=0, position=(0, 0)):
         """Args:
@@ -14,15 +11,8 @@ class Square:
         size: size of the square.
         position: must be a tuple of 2 positive integers.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
-
-        self.check_position(position)
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -45,6 +35,7 @@ class Square:
 
         if value < 0:
             raise ValueError("size must be >= 0")
+        
         self.__size = value
 
     @property
@@ -55,7 +46,14 @@ class Square:
     @position.setter
     def position(self, value):
         """setter for __position"""
-        self.check_position(value)
+        if type(value) is not tuple:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if type(value[0]) is not int or type(value[1]) is not int:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
@@ -74,14 +72,3 @@ class Square:
                 print("#" * self.__size)
         else:
             print()
-
-    def check_position(self, value):
-        """Check if value is a tuple of 2 positive integers"""
-        if type(value) is not tuple:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if type(value[0]) is not int or type(value[1]) is not int:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
