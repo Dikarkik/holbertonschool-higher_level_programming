@@ -1,0 +1,17 @@
+Using ``5-text_indentation.py``
+python3 -m doctest -v ./tests/5-text_indentation.txt
+
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    
+    >>> text_indentation("Hola. Diana")
+    Hola.
+    <BLANKLINE>
+    Diana
+
+
+    >>> text_indentation("Hola.    Diana")
+    Hola.
+    <BLANKLINE>
+    Diana
