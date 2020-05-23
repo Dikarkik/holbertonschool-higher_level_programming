@@ -6,6 +6,10 @@ def text_indentation(text):
     """
     Prints a text with 2 new lines after each of
     these characters: ., ? and :
+    Parameters:
+        text: must be a string
+    Raises:
+        TypeError: If text is not string
     """
     if type(text) is not str:
         raise TypeError("text must be a string")
