@@ -24,9 +24,10 @@ def matrix_divided(matrix, div):
     for li in matrix:
         if type(li) is not list:
             raise TypeError(error_matrix)
-        for num in li:
-            if not (type(num) is int or type(num) is float):
-                raise TypeError(error_matrix)
+        else:
+            for num in li:
+                if not (type(num) is int or type(num) is float):
+                    raise TypeError(error_matrix)
 
     len_li = len(matrix[0])
     for li in matrix:
