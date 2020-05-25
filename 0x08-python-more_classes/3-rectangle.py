@@ -48,6 +48,8 @@ class Rectangle:
         Define printable string representation
         of the rectagle with a symbol like #
         """
+        if self.__height == 0 or self.__width == 0:
+            return ""
         str = ""
         for i in range(self.__height):
             str = str + ("#" * self.__width)
