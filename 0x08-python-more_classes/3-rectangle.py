@@ -44,6 +44,10 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """
+        Define printable string representation
+        of the rectagle with a symbol like #
+        """
         str = ""
         for i in range(self.__height):
             str = str + ("#" * self.__width)
