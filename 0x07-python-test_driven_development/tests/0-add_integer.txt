@@ -29,12 +29,12 @@ No funciona con from 0-add_integer import add_integer
     >>> add_integer(float('nan'))
     Traceback (most recent call last):
         ...
-    TypeError: a must be an integer
+    ValueError: cannot convert float NaN to integer
 
     >>> add_integer(1, float('nan'))
     Traceback (most recent call last):
         ...
-    TypeError: b must be an integer
+    ValueError: cannot convert float NaN to integer
 
 
     >>> add_integer("1", 1)
