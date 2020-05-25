@@ -16,19 +16,19 @@ python3 -m doctest -v ./tests/2-matrix_divided.txt | tail -2
     >>> matrix_divided([[1, "abc"], [1, 2]], 3)
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
 
 
     >>> matrix_divided([[1, 2], [1, "abc"]], 3)
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
 
 
     >>> matrix_divided([[1, 2], "abc"], 3)
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
 
 
     >>> matrix_divided([[1], [1, 2]], 3)
