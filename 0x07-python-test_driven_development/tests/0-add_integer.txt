@@ -14,6 +14,29 @@ No funciona con from 0-add_integer import add_integer
     99
 
 
+    >>> add_integer(1e100)
+    Traceback (most recent call last):
+        ...
+    OverflowError: a too large
+
+
+    >>> add_integer(1, 1e100)
+    Traceback (most recent call last):
+        ...
+    OverflowError: b too large
+
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(1, float('nan'))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+
     >>> add_integer("1", 1)
     Traceback (most recent call last):
         ...
@@ -30,3 +53,4 @@ No funciona con from 0-add_integer import add_integer
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
