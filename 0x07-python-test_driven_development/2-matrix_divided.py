@@ -3,7 +3,7 @@
 
 
 def matrix_divided(matrix, div):
-    """ 
+    """
     Divides all elements of a matrix by div.
     Parameters:
         matrix: must be a list of lists of integers or floats
@@ -18,16 +18,17 @@ def matrix_divided(matrix, div):
     Returns:
         new_matrix: new matrix with all elements divided by div
     """
-    error_matrix = "matrix must be a matrix(list of lists) of integers/floats"
+    err_matrix = "matrix must be a matrix(list of lists) of integers/floats"
+    err_matrix2 = "matrix must be a matrix (list of lists) of integers/floats"
     if type(matrix) is not list:
-        raise TypeError(error_matrix)
+        raise TypeError(err_matrix)
     for li in matrix:
         if type(li) is not list:
-            raise TypeError(error_matrix)
+            raise TypeError(err_matrix)
         else:
             for num in li:
                 if not (type(num) is int or type(num) is float):
-                    raise TypeError(error_matrix)
+                    raise TypeError(err_matrix2)
 
     len_li = len(matrix[0])
     for li in matrix:
