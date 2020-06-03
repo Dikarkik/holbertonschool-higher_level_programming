@@ -101,6 +101,11 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
         ...
     TypeError: age must be an integer
 
+
+15. Send big number
+    >>> bg.integer_validator("age", 99999999999999999999999999999999999999999)
+    
+
 --------------------------------------------------------
 
 
