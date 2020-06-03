@@ -46,11 +46,18 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 
-6. Two arguments missing
-    >>> bg.integer_validator(None)
+7. Send a bool
+    >>> bg.integer_validator("age", True)
     Traceback (most recent call last):
         ...
-    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    TypeError: age must be an integer
+
+
+8. Send float
+    >>> bg.integer_validator("age", 3.33)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
 
 
 --------------------------------------------------------
