@@ -1,19 +1,29 @@
 Using ``1-my_list.py``
 python3 -m doctest -v ./tests/1-my_list.txt
 
+
     >>> MyList = __import__('1-my_list').MyList
+
+
     >>> my_list = MyList()
-
-
     >>> my_list.print_sorted()
     []
 
 
+    >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.print_sorted()
     [1]
 
 
+    >>> my_list = MyList()
+    >>> my_list.append(-1)
+    >>> my_list.print_sorted()
+    [-1]
+
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
     >>> my_list.append(2)
     >>> my_list.append(3)
     >>> my_list.append(4)
@@ -26,8 +36,17 @@ python3 -m doctest -v ./tests/1-my_list.txt
     >>> my_list.print_sorted()
     [-5, 1, 2, 3, 4, 5]
 
-
-
-    >>> my_list.append(99999999999999999999999999999999999999999999999999)
+    >>> my_list = MyList()
+    >>> my_list.append(-10)
+    >>> my_list.append(-3)
+    >>> my_list.append(-4)
+    >>> my_list.append(-5)
     >>> my_list.print_sorted()
-    [-5, 1, 2, 3, 4, 5, 99999999999999999999999999999999999999999999999999]
+    [-10, -5, -4, -3]
+
+
+    >>> my_list = MyList()
+    >>> my_list.append(0)
+    >>> my_list.append(9999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
+    >>> my_list.print_sorted()
+    [0, 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999]
