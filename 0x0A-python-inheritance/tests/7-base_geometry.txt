@@ -60,6 +60,13 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
     TypeError: age must be an integer
 
 
+9. Send NaN
+    >>> bg.integer_validator("age", int('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid literal for int() with base 10: 'nan'
+
+
 --------------------------------------------------------
 
 
