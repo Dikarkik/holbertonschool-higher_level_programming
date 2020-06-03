@@ -104,7 +104,14 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
 
 15. Send big number
     >>> bg.integer_validator("age", 99999999999999999999999999999999999999999)
-    
+
+
+16. Send dict
+    >>> bg.integer_validator("age", {1, 1})
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
 
 --------------------------------------------------------
 
