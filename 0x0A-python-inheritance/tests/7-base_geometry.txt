@@ -60,11 +60,25 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
     TypeError: age must be an integer
 
 
-9. Send NaN
-    >>> bg.integer_validator("age", int('nan'))
+9. Send Tuple
+    >>> bg.integer_validator("age", (1, 2))
     Traceback (most recent call last):
         ...
-    ValueError: invalid literal for int() with base 10: 'nan'
+    TypeError: age must be an integer
+
+
+10. Send dict
+    >>> bg.integer_validator("age", {'a': 1})
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+
+11. Send dict
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
 
 
 --------------------------------------------------------
