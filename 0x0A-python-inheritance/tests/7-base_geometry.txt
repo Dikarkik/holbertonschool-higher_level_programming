@@ -5,37 +5,41 @@ python3 -m doctest -v ./tests/7-base_geometry.txt
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
+
 1. Send a positive integer
     >>> bg.integer_validator("name", 15)
     
 
 
-1. Send a string
+2. Send a string
     >>> bg.integer_validator("name", "string")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
 
-
+3. Send a zero
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
         ...
     ValueError: age must be greater than 0
 
 
-    >>> bg.integer_validator("name", int('nan'))
+4. Send negative number
+    >>> bg.integer_validator("age", -3)
     Traceback (most recent call last):
         ...
-    ValueError: invalid literal for int() with base 10: 'nan'
+    ValueError: age must be greater than 0
 
 
+5. One argument missing
     >>> bg.integer_validator("age")
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 
+6. Two arguments missing
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
