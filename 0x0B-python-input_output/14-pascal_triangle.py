@@ -12,6 +12,10 @@ def pascal_triangle(n):
     Returns:
         list of lists: of integers
     """
+    
+    if n <= 0:
+        return list([])
+    
     li = [[1]]
 
     for y in range(1, n):
