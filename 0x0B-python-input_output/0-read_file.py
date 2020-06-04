@@ -9,4 +9,4 @@ def read_file(filename=""):
         filename (str, optional): name of the text file. Defaults to "".
     """
     with open(filename, encoding='utf-8') as file:
-        print(file.read())
+        print(file.read(), end="")
