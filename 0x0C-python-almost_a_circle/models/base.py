@@ -107,16 +107,14 @@ class Base:
         """
         file_name = cls.__name__ + ".json"
         list_dictionaries = []
-        
-        try:
-            with open(file_name, mode='r', encoding='utf-8') as file:
-                list_dictionaries = Base.from_json_string(file.read())
-        except:
-            list_dictionaries = "[]"
+
+        with open(file_name, mode='r', encoding='utf-8') as file:
+            list_dictionaries = Base.from_json_string(file.read())
 
         list_instances = []
-        for dictionary in list_dictionaries:
-            new_instance = cls.create(**dictionary)
-            list_instances.append(new_instance)
+        if list_dictionaries:
+            for dictionary in list_dictionaries:
+                new_instance = cls.create(**dictionary)
+                list_instances.append(new_instance)
 
         return list_instances
