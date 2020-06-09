@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+""" Module: Square """
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """ defines a Square """
     def __init__(self, size, x=0, y=0, id=None):
         """constructor
 
