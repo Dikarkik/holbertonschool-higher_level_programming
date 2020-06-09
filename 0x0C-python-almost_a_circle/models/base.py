@@ -87,18 +87,12 @@ class Base:
         Returns:
             object: isntance of a Rectangle or Square
         """
-        from models.rectangle import Rectangle
-        from models.square import Square
-
-        if dictionary:
-            if cls.__name__ == "Square":
-                obj = Square(1, 1, 0, 0)
-            else:
-                obj = Rectangle(1, 1, 0, 0)
-
-            obj.update(**dictionary)
-
-            return obj
+        if cls.__name__ == 'Square':
+            dummy = cls(1)
+        else:
+            dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
