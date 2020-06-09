@@ -255,9 +255,9 @@ class RectangleTest(unittest.TestCase):
     """
     def test_str(self):
         r = Rectangle(1, 1, 8, 8, 10)
-        self.assertEqual(r.__str__(), "[Rectangle] (10) 8/8 1/1")
+        self.assertEqual(r.__str__(), "[Rectangle] (10) 8/8 - 1/1")
         r = Rectangle(1, 1, 1, 1, 11)
-        self.assertEqual(r.__str__(), "[Rectangle] (11) 1/1 1/1")
+        self.assertEqual(r.__str__(), "[Rectangle] (11) 1/1 - 1/1")
 
     """
     ------------------------------------------------------------
