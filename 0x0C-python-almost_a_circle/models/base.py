@@ -113,7 +113,7 @@ class Base:
             with open(file_name, mode='r', encoding='utf-8') as file:
                 list_dictionaries = Base.from_json_string(file.read())
         except:
-            return list_instances
+            return list_dictionaries
 
         list_instances = []
         if list_dictionaries:
