@@ -105,13 +105,14 @@ class Base:
             depends on cls (current class using this method).
             If the file doesn’t exist, return an empty list.
         """
-        from models.rectangle import Rectangle
-        from models.square import Square
-
         file_name = cls.__name__ + ".json"
         list_dictionaries = []
-        with open(file_name, mode='r', encoding='utf-8') as file:
-            list_dictionaries = Base.from_json_string(file.read())
+        
+        try:
+            with open(file_name, mode='r', encoding='utf-8') as file:
+                list_dictionaries = Base.from_json_string(file.read())
+        except:
+            list_dictionaries = "[]"
 
         list_instances = []
         for dictionary in list_dictionaries:
