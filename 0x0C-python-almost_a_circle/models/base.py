@@ -87,12 +87,13 @@ class Base:
         Returns:
             object: isntance of a Rectangle or Square
         """
-        if cls.__name__ == 'Square':
-            dummy = cls(1)
-        else:
-            dummy = cls(1, 1)
-        dummy.update(**dictionary)
-        return dummy
+        if dictionary:
+            if cls.__name__ == 'Square':
+                dummy = cls(1)
+            else:
+                dummy = cls(1, 1)
+            dummy.update(**dictionary)
+            return dummy
 
     @classmethod
     def load_from_file(cls):
@@ -108,8 +109,11 @@ class Base:
         file_name = cls.__name__ + ".json"
         list_dictionaries = []
 
-        with open(file_name, mode='r', encoding='utf-8') as file:
-            list_dictionaries = Base.from_json_string(file.read())
+        try:
+            with open(file_name, mode='r', encoding='utf-8') as file:
+                list_dictionaries = Base.from_json_string(file.read())
+        except:
+            return list_instances
 
         list_instances = []
         if list_dictionaries:
