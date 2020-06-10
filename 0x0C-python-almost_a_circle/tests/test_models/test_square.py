@@ -14,6 +14,7 @@ python3 -m unittest tests/test_models/test_square.py
 
 import unittest
 from models.square import Square
+import pep8
 
 
 class TestSquare(unittest.TestCase):
@@ -135,3 +136,10 @@ class TestSquare(unittest.TestCase):
         new_dic = s.to_dictionary()
         dic_example = dict({'id': 11, 'size': 1, 'x': 0, 'y': 0})
         self.assertDictEqual(new_dic, dic_example)
+
+    def test_pep8_conformance(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/square.py'])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings).")
