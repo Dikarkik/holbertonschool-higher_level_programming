@@ -12,12 +12,9 @@ import MySQLdb
 import sys
 
 
-def states_starting_N():
+if __name__ == "__main__":
     """ displays all values in the 'states' table
     where name matches the argument """
-
-    if len(sys.argv) != 5:
-        return
 
     db = MySQLdb.connect(host='localhost',
                          user=sys.argv[1],
@@ -32,6 +29,3 @@ def states_starting_N():
         print(cur.fetchone())
 
     cur.close()
-
-if __name__ == "__main__":
-    states_starting_N()
