@@ -23,4 +23,4 @@ if __name__ == "__main__":
     if first_result:
         print("{}: {}".format(first_result.id, first_result.name))
     else:
-        print(Nothing)
+        print("Nothing")
