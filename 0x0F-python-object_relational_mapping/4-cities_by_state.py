@@ -28,3 +28,4 @@ if __name__ == "__main__":
         print(elem)
 
     cur.close()
+    db.close()

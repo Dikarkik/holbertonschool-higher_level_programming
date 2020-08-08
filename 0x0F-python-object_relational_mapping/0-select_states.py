@@ -27,6 +27,7 @@ def lists_all_states():
         print(cur.fetchone())
 
     cur.close()
+    db.close()
 
 if __name__ == "__main__":
     lists_all_states()

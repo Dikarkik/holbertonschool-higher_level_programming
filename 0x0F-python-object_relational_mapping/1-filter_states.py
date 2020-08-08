@@ -23,12 +23,13 @@ def states_starting_N():
                          passwd=sys.argv[2],
                          db=sys.argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%'\
+    cur.execute("SELECT * FROM states WHERE name LIKE BYNARY 'N%'\
      ORDER BY states.id ASC;")
     for elem in cur:
         print(cur.fetchone())
 
     cur.close()
+    db.close()
 
 if __name__ == "__main__":
     states_starting_N()
