@@ -22,7 +22,7 @@ def states_starting_N():
                          passwd=sys.argv[2],
                          db=sys.argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%';")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id;")
     for elem in cur:
         print(cur.fetchone())
 

@@ -8,7 +8,8 @@ But this time, write one that is safe from MySQL injections!
 usage ./3-my_safe_filter_states.py <mysql username> <mysql passwd>
 <database name> <state name searched>
 example: ./3-my_safe_filter_states.py vagrant pass hbtn_0e_0_usa 'Arizona'
-SQL injection: ./3-my_safe_filter_states.py vagrant pass hbtn_0e_0_usa"Arizona';\
+SQL injection: ./3-my_safe_filter_states.py vagrant
+pass hbtn_0e_0_usa"Arizona';
 TRUNCATE TABLE states ; SELECT * FROM states WHERE name = '"
 """
 import MySQLdb
