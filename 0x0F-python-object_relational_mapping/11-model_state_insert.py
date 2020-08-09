@@ -21,8 +21,16 @@ if __name__ == "__main__":
 
     session = Session()
 
-    new_state = State(name="Louisiana")
-    print(new_state.id)
-    session.add(new_state)
-    session.commit()
-    session.close()
+    name_to_add = "Louisiana"
+
+    """ prevent repeated entry """
+    result = session.query(State).filter(State.name.like(name_to_add)).first()
+    if not result:
+        new_state = State(name=name_to_add)
+        session.add(new_state)
+        session.commit()
+        result = session.query(State)\
+                        .filter(State.name.like(name_to_add))\
+                        .first()
+        print(result.id)
+        session.close()
