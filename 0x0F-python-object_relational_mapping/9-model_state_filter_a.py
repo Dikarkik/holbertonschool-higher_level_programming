@@ -26,3 +26,5 @@ if __name__ == "__main__":
 
     for instance in states:
             print("{}: {}".format(instance.id, instance.name))
+
+    session.close()

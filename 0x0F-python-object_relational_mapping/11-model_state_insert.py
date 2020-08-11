@@ -32,4 +32,5 @@ if __name__ == "__main__":
                         .filter(State.name.like(name_to_add))\
                         .first()
         print(result.id)
-        session.close()
+
+    session.close()
