@@ -19,6 +19,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    """ other way .contains() """
     states = session.query(State)\
                     .filter(State.name.like("%a%"))\
                     .order_by(State.id)\
