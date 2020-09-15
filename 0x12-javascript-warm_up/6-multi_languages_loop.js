@@ -2,4 +2,6 @@
 
 const array = ['C is fun', 'Python is cool', 'Javascript is amazing'];
 
-array.forEach(element => { console.log(element); });
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
