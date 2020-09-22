@@ -14,8 +14,9 @@ if (url) {
       const movies = JSON.parse(body).results;
       let count = 0;
 
-      for (const movie of movies) {
-        if (movie.characters.includes('https://swapi-api.hbtn.io/api/people/' + characterId + '/')) { count++; }
+    for (const movie of movies) {
+      for (character in movie.characters)
+        if (character.includes('18')) { count++; }
       }
       console.log(count);
     }
