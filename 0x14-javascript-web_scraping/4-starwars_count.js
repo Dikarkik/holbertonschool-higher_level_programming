@@ -15,9 +15,7 @@ if (url) {
 
       for (const movie of movies) {
         for (const character of movie.characters) {
-          if (character.slice(-4) === '/18/') {
-            count++;
-          }
+          if (character.slice(-4) === '/18/') { count++; }
         }
       }
       console.log(count);
