@@ -9,15 +9,15 @@ const url = process.argv[2];
 const characterId = 18;
 
 if (url) {
-	request(url, function (error, response, body) {
-		if (error) { return (console.log(error)); }
+  request(url, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const movies = JSON.parse(body).results;
+      let count = 0;
 
-		const movies = JSON.parse(body).results;
-		let count = 0;
-
-		for (const movie of movies) {
-			if (movie.characters.includes('https://swapi-api.hbtn.io/api/people/' + characterId + '/')) { count++; }
-		}
-		console.log(count);
-	});
+      for (const movie of movies) {
+        if (movie.characters.includes('https://swapi-api.hbtn.io/api/people/' + characterId + '/')) { count++; }
+      }
+      console.log(count);
+    }
+  });
 }
