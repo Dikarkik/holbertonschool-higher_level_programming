@@ -9,7 +9,7 @@ request(url, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     const tasksCompleted = {};
 
-    for (task of JSON.parse(body)) {
+    for (const task of JSON.parse(body)) {
       if (task.completed) {
         if (!tasksCompleted[task.userId]) {
           tasksCompleted[task.userId] = 1;
