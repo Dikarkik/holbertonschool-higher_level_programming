@@ -6,7 +6,6 @@
 
 const request = require('request');
 const url = process.argv[2];
-const characterId = 18;
 
 if (url) {
   request(url, function (error, response, body) {
@@ -14,9 +13,12 @@ if (url) {
       const movies = JSON.parse(body).results;
       let count = 0;
 
-    for (const movie of movies) {
-      for (character in movie.characters)
-        if (character.includes('18')) { count++; }
+      for (const movie of movies) {
+        for (const character of movie.characters) {
+          if (character.slice(-4) === '/18/') {
+            count++;
+          }
+        }
       }
       console.log(count);
     }
